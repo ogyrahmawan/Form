@@ -1,6 +1,6 @@
 <template>
   <input v-if="isDisabled" disabled type="date">
-  <input @change="handleDatePicker" v-else type="date">
+  <input required @change="handleDatePicker" v-else type="date">
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   methods: {
     handleDatePicker (e) {
       const value = e.target.value
-      this.$emit('handleDatePicker', value)
+      this.$store.dispatch('handleGraduationDate', value)
     }
   }
 }

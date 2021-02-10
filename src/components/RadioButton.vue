@@ -4,11 +4,11 @@
     <div class="col-md-6 col-sm-12 text-left">
       <label class="ml-2">
         <input 
+        @change="handleChange"
         type="radio" 
         :name="option" 
         :id="option" 
         :value="option"
-        v-model="selectedOption"
         >
         {{option}}
       </label>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div v-if="selectedOption === 'Other'" class="ml-3">
-    <TextInput @handleInput="handleInput" />
+    <TextInput />
   </div>
 </div>
 </template>
@@ -34,15 +34,10 @@ export default {
       DatePicker
     },
     props: ['options'],
-    data () {
-      return {
-        selectedOption: '',
-        otherOption: ''
-      }
-    },
     methods: {
-      handleInput (value) {
-        this.otherOption = value
+      handleChange (e) {
+        const value = e.target.value
+        this.store.dispatch('handleLastEducation', value)
       }
     }
 }

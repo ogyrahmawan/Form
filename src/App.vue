@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="form_container text-white">
-        <form>
+        <form @submit.prevent="handleSubmit">
           <div class="row">
             <div class="col-md-3 sm-12 form_question text-center">
               <h5>Last Education</h5>
@@ -27,7 +27,7 @@
 
 <script>
 import RadioButton from './components/RadioButton'
-
+import Swal from 'sweetalert2'
 export default {
   name: 'App',
   components: {
@@ -43,6 +43,26 @@ export default {
         'Other'
 
       ]
+    }
+  },
+  methods: {
+    handleSubmit () {
+      if(this.lastEducation === 'Other') {
+        Swal.fire(`Your degree is ${this.otherOption} and graduate at ${this.graduationDate}`)
+      } else {
+        Swal.fire(`Your degree is ${this.lastEducation} and graduate at ${this.graduationDate}`)
+      }
+    }
+  },
+  computed: {
+    lastEducation () {
+      return this.$store.state.lastEducation
+    },
+    graduationDate () {
+      return this.$store.state.graduationDate
+    },
+    otherOption () {
+      return this.$store.state.otherOption
     }
   }
 }

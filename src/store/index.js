@@ -22,6 +22,7 @@ export default new Vuex.Store({
   }, 
   actions: {
     handleLastEducation (context, payload) {
+        console.log('test')
         context.setLastEducation(payload)
     },
     handleOtherOption (context, payload) {

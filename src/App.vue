@@ -47,10 +47,18 @@ export default {
   },
   methods: {
     handleSubmit () {
-      if(this.lastEducation === 'Other') {
-        Swal.fire(`Your degree is ${this.otherOption} and graduate at ${this.graduationDate}`)
+      if(!this.lastEducation) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'You Need to Answer The Question'
+        })
       } else {
-        Swal.fire(`Your degree is ${this.lastEducation} and graduate at ${this.graduationDate}`)
+        if(this.lastEducation === 'Other') {
+          Swal.fire(`Your degree is ${this.otherOption} and graduate at ${this.graduationDate}`)
+        } else {
+          Swal.fire(`Your degree is ${this.lastEducation} and graduate at ${this.graduationDate}`)
+        }
       }
     }
   },

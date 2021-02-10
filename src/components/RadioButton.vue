@@ -9,6 +9,7 @@
         :name="option" 
         :id="option" 
         :value="option"
+        v-model="selectedOption"
         >
         {{option}}
       </label>
@@ -34,10 +35,16 @@ export default {
       DatePicker
     },
     props: ['options'],
+    data () {
+      return {
+        selectedOption: '',
+        otherOption: ''
+      }
+    },
     methods: {
       handleChange (e) {
         const value = e.target.value
-        this.store.dispatch('handleLastEducation', value)
+        this.$store.dispatch('handleLastEducation', value)
       }
     }
 }

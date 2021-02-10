@@ -22,14 +22,13 @@ export default new Vuex.Store({
   }, 
   actions: {
     handleLastEducation (context, payload) {
-        console.log('test')
-        context.setLastEducation(payload)
+        context.commit('setLastEducation',payload)
     },
     handleOtherOption (context, payload) {
-        context.setOtherOption(payload)
+        context.commit('setOtherOption', payload)
     },
     handleGraduationDate (context, payload) {
-        context.setGraduationDate(payload)
+        context.commit('setGraduationDate', payload)
     }
   },
   modules: {

@@ -1,16 +1,22 @@
 <template>
 <div class="form_option">
-  <div class="mt-1" v-for="(option, index) in options" :key="index">
-    <label class="ml-3">
-      <input 
-      type="radio" 
-      :name="option" 
-      :id="option" 
-      :value="option"
-      v-model="selectedOption"
-      >
-      {{option}}
-    </label>
+  <div class="mt-1 row w-100" v-for="(option, index) in options" :key="index">
+    <div class="col-md-6 col-sm-12 text-left">
+      <label class="ml-2">
+        <input 
+        type="radio" 
+        :name="option" 
+        :id="option" 
+        :value="option"
+        v-model="selectedOption"
+        >
+        {{option}}
+      </label>
+    </div>
+    <div class="col-md-6 col-sm-12">
+    <DatePicker v-if="option === selectedOption" :isDisabled="false" />
+    <DatePicker v-else :isDisabled="true" />
+    </div>
   </div>
   <div v-if="selectedOption === 'Other'" class="ml-3">
     <TextInput @handleInput="handleInput" />
@@ -20,10 +26,12 @@
 
 <script>
 import TextInput from '../components/TextInput'
+import DatePicker from '../components/DatePicker'
 export default {
     name: 'RadioButton',
     components: {
-      TextInput
+      TextInput,
+      DatePicker
     },
     props: ['options'],
     data () {

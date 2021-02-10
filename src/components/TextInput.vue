@@ -1,5 +1,5 @@
 <template>
-<input @change="handleChange" class="w-100" type="text">
+<input @change="handleChange" class="col-md-12 col-sm-12 ml-0" type="text" placeholder="education background">
 </template>
 
 <script>

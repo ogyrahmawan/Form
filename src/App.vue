@@ -9,11 +9,11 @@
       </div>
       <div class="form_container text-white">
         <form>
-          <div class="d-flex justify-content-center">
-            <div class="form_question w-50">
-              <label>Last Education</label>
+          <div class="row">
+            <div class="col-md-3 sm-12 form_question text-center">
+              <h5>Last Education</h5>
             </div>
-            <div class="w-50">
+            <div class="col-md-9 sm-12">
               <RadioButton :options="educations" />
             </div>
           </div>
@@ -61,7 +61,7 @@ export default {
 }
 .form_card {
   min-height: 400px;
-  min-width: 60%;
+  min-width: 30%;
   max-width: 100%;
   margin-top: 100px;
   margin-bottom: auto;
@@ -94,11 +94,12 @@ export default {
   margin-top: 100px;
 }
 .form_question {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 </style>
